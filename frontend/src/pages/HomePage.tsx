@@ -99,7 +99,7 @@ const HomePage = () => {
       <ImageBanner src="/loveBanner.png" alt="love Banner" />
 
       {/* Favorites Section */}
-      <ProductSection title="Favorites" products={Favorites} category="Favorites" />
+      <ProductSection title="Favorites" products={Favorites} category="Favorites" showDivider={false} />
     </div>
   )
 }

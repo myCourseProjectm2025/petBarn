@@ -95,7 +95,7 @@ export function ProductSwiper({ Brands }: CarouselSizeProps) {
             <CarouselItem key={index} className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4">
               <div className="p-1">
                 <Card
-                  className="drop-shadow-lg hover:drop-shadow-xl transition-all cursor-pointer"
+                  className="shadow-left-bottom-md hover:shadow-left-bottom-xl transition-all cursor-pointer"
                   onClick={() => onBrandClick(brand.name)}
                 >
 

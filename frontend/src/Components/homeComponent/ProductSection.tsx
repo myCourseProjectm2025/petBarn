@@ -46,7 +46,7 @@ export const ProductSection = ({
   }
 
   return (
-    <div className="flex flex-col gap-2 text-xl font-raleway items-center justify-center min-h-[38vh] max-w-[75vw]">
+    <div className="flex flex-col gap-4 py-4 text-xl font-raleway items-center justify-center min-h-[38vh] max-w-[75vw]">
       <div className="flex items-center gap-3">
         <h2
           className={`${hideOnMobile ? "hidden md:flex" : "flex"} text-3xl font-extrabold text-primary drop-shadow-lg`}

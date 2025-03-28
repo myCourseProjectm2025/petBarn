@@ -1,42 +1,77 @@
 "use client"
 
+import { Link } from "react-router-dom"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion"
 import { useMobile } from "../store/useMobile"
+import { ExternalLink } from "lucide-react"
 
+// Updated footer array with link paths
 const footerArr = [
   {
     title: "Information",
     links: [
-      "SiteMap",
-      "Contact Us",
-      "Search",
-      "Blog",
-      "New Products",
-      "Delivery policy",
-      "Privacy notice",
-      "Terms & Conditions",
-      "About Us",
+      { text: "SiteMap", path: "/sitemap" },
+      { text: "Contact Us", path: "/contactUs" },
+      { text: "Search", path: "/shop" },
+      { text: "Blog", path: "/blog" },
+      { text: "New Products", path: "/shop?sort=newest" },
+      { text: "Delivery policy", path: "/delivery_policy" },
+      { text: "Privacy notice", path: "/privacy" },
+      { text: "Terms & Conditions", path: "/terms" },
+      { text: "About Us", path: "/about" },
     ],
   },
   {
     title: "My Account",
-    links: ["My Account", "Orders", "Addresses", "Recently Viewed", "Shopping Cart"],
+    links: [
+      { text: "My Account", path: "/my_account" },
+      { text: "Orders", path: "/my_account/orders" },
+      { text: "Addresses", path: "/my_account/addresses" },
+      { text: "Recently Viewed", path: "/my_account/recently-viewed" },
+      { text: "Shopping Cart", path: "/cart" },
+    ],
   },
   {
     title: "Customer Service",
-    links: ["Apply for Vendor Account"],
+    links: [{ text: "Apply for Vendor Account", path: "/vendor-application" }],
   },
   {
     title: "Follow Us",
-    links: ["My LinkedIn", "My GitHub"],
+    links: [
+      { text: "My LinkedIn", path: "https://linkedin.com/in/omarkibrahim", external: true },
+      { text: "My GitHub", path: "https://github.com/omarkh94", external: true },
+    ],
   },
 ]
 
 export default function Footer() {
-  const isMobile = useMobile(768) 
+  const isMobile = useMobile(768)
+
+  // Function to render links with proper navigation
+  const renderLink = (link: { text: string; path: string; external?: boolean }, className: string) => {
+    if (link.external) {
+      return (
+        <a
+          href={link.path}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`${className} flex items-center justify-center`}
+        >
+          {link.text}
+          <ExternalLink size={14} className="ml-1" />
+        </a>
+      )
+    }
+
+    return (
+      <Link to={link.path} className={className}>
+        {link.text}
+      </Link>
+    )
+  }
 
   return (
-    <div className="border-t-2 h-auto max-w-[100vw] text-l drop-shadow-2xl bg-textPrm">
+    <div className="border-t-2 h-auto max-w-[100vw] text-l shadow-inner shadow-2xl bg-textPrm">
       {isMobile ? (
         // Mobile Accordion Footer
         <div className="flex flex-col items-center py-4">
@@ -50,11 +85,11 @@ export default function Footer() {
                   <AccordionContent>
                     <div className="mt-2 flex flex-col items-center">
                       {section.links.map((link, idx) => (
-                        <div
-                          key={idx}
-                          className="cursor-pointer text-secondary text-l hover:text-navBG py-1 text-center"
-                        >
-                          {link}
+                        <div key={idx} className="py-1 text-center">
+                          {renderLink(
+                            link,
+                            "cursor-pointer text-secondary text-l hover:text-navBG hover:underline transition-colors",
+                          )}
                         </div>
                       ))}
                     </div>
@@ -76,11 +111,11 @@ export default function Footer() {
                 <span className="font-bold text-navBG justify-center text-center">{section.title}</span>
                 <div className="mt-2">
                   {section.links.map((link, idx) => (
-                    <div
-                      key={idx}
-                      className="cursor-pointer text-secondary text-l justify-center text-center hover:text-navBG"
-                    >
-                      {link}
+                    <div key={idx} className="justify-center text-center">
+                      {renderLink(
+                        link,
+                        "cursor-pointer text-secondary text-l hover:text-navBG hover:underline transition-colors",
+                      )}
                     </div>
                   ))}
                 </div>

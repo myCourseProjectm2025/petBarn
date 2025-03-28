@@ -4,3 +4,10 @@
 @tailwind utilities;
 
 
+.shadow-left-bottom-md {
+    box-shadow: -7px 7px 12px rgba(0, 0, 0, 0.2);
+}
+
+.hover\:shadow-left-bottom-xl:hover {
+    box-shadow: -11px 11px 20px rgba(0, 0, 0, 0.4);
+}
