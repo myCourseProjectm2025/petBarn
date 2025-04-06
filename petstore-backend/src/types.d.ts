@@ -75,6 +75,17 @@ export type OrderItemType = {
   is_deleted: boolean;
 };
 
+export type ProductBodyType = {
+  amount: string;
+  description: string;
+  quantity: number;
+  brand: number;
+  image_url: string;
+  product_name: string;
+  user_id: number;
+}
+
+
 export type ProductType = {
   id: number;
   feedback: number;

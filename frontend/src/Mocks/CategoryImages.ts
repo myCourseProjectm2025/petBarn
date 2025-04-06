@@ -2,7 +2,7 @@
 const categoryImages = {
     // Main category banners for sidebar
     categories: {
-      Pets: "/images/banners/pets-banner.gif",
+      Pets: "/pet.png",
       Foods: "/images/banners/foods-banner.gif",
       Supplies: "/images/banners/supplies-banner.gif",
       Services: "/images/banners/services-banner.gif",
@@ -19,6 +19,19 @@ const categoryImages = {
       Cats: "/images/subcategories/cats.jpg",
       Birds: "/images/subcategories/birds.jpg",
       "Small Pets": "/images/subcategories/small-pets.jpg",
+
+
+
+
+
+
+
+
+
+
+
+
+      
   
       // Foods subcategories
       "Food for Dogs": "/images/subcategories/dog-food.jpg",
